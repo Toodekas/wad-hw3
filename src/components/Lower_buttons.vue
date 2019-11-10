@@ -1,11 +1,10 @@
 <template>
-
-
+    
 </template>
 
 <script>
     export default {
-        name: "Courses_view"
+        name: "Lower_buttons"
     }
 </script>
 
