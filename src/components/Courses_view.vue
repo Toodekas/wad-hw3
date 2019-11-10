@@ -50,6 +50,10 @@
         <div v-else>
             <button id="add-course-button" class="blue-button" @click="open = true">+</button>
         </div>
+        <div id="deleteme">
+            <button v-on:click="getCoursesPoints"></button>
+            <h1 id="test1"></h1>
+        </div>
         <br>
         <br>
 
@@ -66,10 +70,35 @@
                 title: "",
                 open: false
             }
+        },
+        methods: {
+          calcGPApoints : function(x) {
+              if (x > 90) {
+                  return 4;
+              } else if (x > 80) {
+                  return 3;
+              } else if (x > 70) {
+                  return 2;
+              } else if (x > 60) {
+                  return 1;
+              } else if (x > 50) {
+                  return 0.5;
+              } else {
+                  return 0;
+              }
+          },
+          getCoursesPoints : function() {
+              //$('#courses tr td').eq(4).val();
+              //let test = $('#courses tr td').eq(4).val();
+              //this.$("#test1").text(test);
+              localStorage.item = document.getElementById("courses");
+              alert(localStorage.item);
+              return localStorage.item;
+          }
         }
-
     }
 </script>
+
 
 <style scoped>
 
