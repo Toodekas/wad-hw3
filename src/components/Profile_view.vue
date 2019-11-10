@@ -2,7 +2,7 @@
     <div id="profile-container" class="tab active">
         <div id="profile">
             <div class="avatar">
-                <img src="./assets/me.png" id="picture" alt="My picture">
+                <img src="/assets/me.png" id="picture" alt="My picture">
             </div>
             <div class="info">
                 <ul>

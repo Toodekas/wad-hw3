@@ -1,17 +1,35 @@
 <template>
     <main id="app">
-        <Profile_view :user = "user"/>
-        <Lower_buttons/>
+        <header>
+            <strong>Welcome to your dashboard!</strong>
+        </header>
+        <section id="container">
+            <section id="main">
+                <div class="content">
+                    <div id="toReplace">
+                        <Profile_view/>
+                    </div>
+                </div>
+                <Lower_buttons/>
+            </section>
+        </section>
+        <footer>
+            <Footer/>
+        </footer>
     </main>
 </template>
 
 <script>
-
     import Profile_view from "./components/Profile_view";
     import Lower_buttons from "./components/Lower_buttons";
+    import Footer from "./components/Footer";
     export default {
         name: 'app',
-        components: {Lower_buttons, Profile_view}
+        components: {
+            Footer,
+            Lower_buttons,
+            Profile_view
+        }
     }
 </script>
 
@@ -20,7 +38,6 @@
         box-sizing: border-box;
         font-family: 'Livvic', sans-serif;
     }
-
     html, body {
         padding: 0;
         margin: 0;
@@ -28,17 +45,14 @@
         height: 100%;
         background-color: #eaeaea;
     }
-
     main {
         position: relative;
         min-height: 100%;
         padding-bottom: 110px;
     }
-
     .clear-fix {
         clear: both;
     }
-
     header {
         padding: 20px;
         background-color: #2196F3;
@@ -47,7 +61,6 @@
         margin-bottom: 10px;
         height: 60px;
     }
-
     footer {
         padding: 30px 0;
         background-color: #607D8B;
@@ -57,7 +70,6 @@
         bottom: 0;
         width: 100%;
     }
-
     footer .links {
         display: block;
         width: 100%;
@@ -66,16 +78,13 @@
         color: #acd7ff;
         font-size: 11px;
     }
-
     footer .links a {
         text-decoration: none;
         color: #acd7ff;
     }
-
     footer .links a:hover {
         text-decoration: underline;
     }
-
     #container {
         width: 80%;
         max-width: 900px;
@@ -84,36 +93,29 @@
         background-color: #ffffff;
         margin: 0 auto;
     }
-
     #profile {
         border-bottom: 1px dashed #a7a7a7;
         padding-bottom: 10px;
         margin-bottom: 10px;
     }
-
     #profile div:not(.clear-fix) {
         height: 190px;
         float: left;
         position: relative;
     }
-
     #profile .avatar {
         width: 35%;
         text-align: center;
     }
-
     #profile .avatar img {
         width: 180px;
     }
-
     #profile .info {
         width: 45%;
     }
-
     #profile #gpa {
         width: 20%;
     }
-
     #profile #gpa strong {
         position: absolute;
         width: 100%;
@@ -127,18 +129,14 @@
         line-height: 60px;
         text-align: center;
     }
-
     .content {
         padding: 10px;
         border: 1px solid #cbcbcb;
     }
-
     table {
         width: 100%;
         border-collapse: collapse;
-
     }
-
     table th {
         padding: 8px 12px;
         text-align: left;
@@ -146,20 +144,16 @@
         background-color: #03A9F4;
         color: #ffffff;
     }
-
     table td {
         padding: 8px 12px;
         border: 1px solid #cbcbcb;
     }
-
     .content .tab {
         display: none;
     }
-
     .content .tab.active {
         display: block;
     }
-
     .controls .pill {
         border: 1px solid #cbcbcb;
         background-color: #eaeaea;
@@ -170,43 +164,36 @@
         margin-top: -1px;
         outline: none !important;
     }
-
     .controls .pill.active {
         background-color: #ffffff;
         border-top: 1px solid #ffffff;
     }
-
     .controls .pill:hover {
         cursor: pointer;
     }
-
     .blue-button {
         background-color: #2196F3;
         color: #ffffff;
         border: none;
         padding: 10px 20px;
     }
-
     .green-button {
         background-color: #69f378;
         color: #ffffff;
         border: none;
         padding: 10px 10px;
     }
-
     .grey-button {
         background-color: #e1e8e6;
         color: #ffffff;
         border: none;
         padding: 10px 20px;
     }
-
     .input {
         border: 1px solid #cccccc;
         padding: 10px 20px;
         min-width: 135px;
     }
-
     #add-course {
         display: none;
     }
