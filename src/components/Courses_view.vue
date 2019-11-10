@@ -1,4 +1,5 @@
 <template>
+
     <div id="courses-container" class="tab">
         <h1 class="title">Courses</h1>
         <table id="courses">
