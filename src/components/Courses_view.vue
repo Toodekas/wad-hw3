@@ -39,15 +39,34 @@
         </table>
         <br>
         <br>
-        <Courses_add_course/>
+        <div v-if="open">
+            <input class="input" type="text" placeholder="Course title" id="title">
+            <input class="input" type="number" min="1" max="8" placeholder="Semester" id="semester">
+            <input class="input" type="number" min="0" max="100" placeholder="Grade" id="grade">
+            <button class="green-button" id="save-course">Save</button>
+            <button class="grey-button" id="cancel-course" @click="open = false">Cancel</button>
+        </div>
+        <div v-else>
+            <button id="add-course-button" class="blue-button" @click="open = true">+</button>
+        </div>
+        <br>
+        <br>
+
     </div>
+
 </template>
 
 <script>
-    import Courses_add_course from "./Courses_add_course";
+
     export default {
         name: "Courses_view",
-        components: {Courses_add_course}
+        data: () => {
+            return {
+                title: "",
+                open: false
+            }
+        }
+
     }
 </script>
 
