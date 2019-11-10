@@ -1,4 +1,3 @@
-<link rel="stylesheet" type="text/css" href="style.css">
 <template>
     <div>
         <button id="add-course-button" class="blue-button">+</button>

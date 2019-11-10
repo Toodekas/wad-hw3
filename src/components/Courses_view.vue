@@ -1,4 +1,3 @@
-<link rel="stylesheet" type="text/css" href="style.css">
 <template>
     <div id="courses-container" class="tab">
         <h1 class="title">Courses</h1>

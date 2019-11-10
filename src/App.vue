@@ -5,11 +5,6 @@
         </header>
         <section id="container">
             <section id="main">
-                <div class="content">
-                    <div id="toReplace">
-                        <Profile_view/>
-                    </div>
-                </div>
                 <Lower_buttons/>
             </section>
         </section>
@@ -20,7 +15,6 @@
 </template>
 
 <script>
-    import Profile_view from "./components/Profile_view";
     import Lower_buttons from "./components/Lower_buttons";
     import Footer from "./components/Footer";
     export default {
@@ -28,7 +22,7 @@
         components: {
             Footer,
             Lower_buttons,
-            Profile_view
+
         }
     }
 </script>
