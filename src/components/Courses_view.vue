@@ -12,6 +12,13 @@
             </tr>
             </thead>
             <tbody>
+            <tr v-for="(obj,index) in objects" v-bind:key="index">
+                <td>{{index+1}}</td>
+                <td>{{obj.name}}</td>
+                <td>{{obj.semester}}</td>
+                <td>{{obj.grade}}</td>
+            </tr>
+            <!--
             <tr>
                 <td>1</td>
                 <td>Agile software development</td>
@@ -36,24 +43,32 @@
                 <td>2</td>
                 <td>65</td>
             </tr>
+            -->
             </tbody>
         </table>
         <br>
         <br>
         <div v-if="open">
-            <input class="input" type="text" placeholder="Course title" id="title">
-            <input class="input" type="number" min="1" max="8" placeholder="Semester" id="semester">
-            <input class="input" type="number" min="0" max="100" placeholder="Grade" id="grade">
-            <button class="green-button" id="save-course">Save</button>
-            <button class="grey-button" id="cancel-course" @click="open = false">Cancel</button>
+            <input v-model="inputName" class="input" type="text" placeholder="Course title" id="title">
+            <input v-model="inputSemester" class="input" type="number" min="1" max="8" placeholder="Semester" id="semester">
+            <input v-model="inputGrade" class="input" type="number" min="0" max="100" placeholder="Grade" id="grade">
+            <button class="green-button" id="save-course" v-on:click="() => { addNewRow(); open = false; inputName = ''; inputSemester = ''; inputGrade = ''; }">Save</button>
+            <button class="grey-button" id="cancel-course" @click="() => { open = false; inputName = ''; inputSemester = ''; inputGrade = '' }">Cancel</button>
         </div>
         <div v-else>
             <button id="add-course-button" class="blue-button" @click="open = true">+</button>
         </div>
+
+
+
         <div id="deleteme">
-            <button v-on:click="getCoursesPoints"></button>
+            <button v-on:click="addNewRow"></button>
             <h1 id="test1"></h1>
         </div>
+
+
+
+
         <br>
         <br>
 
@@ -65,13 +80,43 @@
 
     export default {
         name: "Courses_view",
-        data: () => {
+        data:
+            () => {
             return {
                 title: "",
-                open: false
+                open: false,
+                inputName: '',
+                inputSemester: '',
+                inputGrade: '',
+                objects: [
+                    {
+                        name: "Agile software development",
+                        semester: 1,
+                        grade: 82
+                    },
+                    {
+                        name: "System modeling",
+                        semester: 1,
+                        grade: 85
+                    },
+                    {
+                        name: "Object-oriented programming",
+                        semester: 2,
+                        grade: 99
+                    },
+                    {
+                        name: "Estonian language Level A2",
+                        semester: 2,
+                        grade: 65
+                    }
+                ]
             }
         },
         methods: {
+            addNewRow : function () {
+              this.objects.push({name: this.inputName, semester: this.inputSemester, grade: this.inputGrade});
+              this.getGPA();
+            },
           calcGPApoints : function(x) {
               if (x > 90) {
                   return 4;
@@ -87,14 +132,18 @@
                   return 0;
               }
           },
-          getCoursesPoints : function() {
-              //$('#courses tr td').eq(4).val();
-              //let test = $('#courses tr td').eq(4).val();
-              //this.$("#test1").text(test);
-              localStorage.item = document.getElementById("courses");
-              alert(localStorage.item);
-              return localStorage.item;
+          getGPA : function() {
+                let sum = 0;
+                let counter = 0;
+              for (let obj in this.objects) {
+                    sum = sum + this.calcGPApoints(parseInt(this.objects[obj].grade));
+                    counter = counter + 1;
+              }
+              localStorage.gpaVal = Math.round((sum/counter) * 10) / 10;
           }
+        },
+        mounted() {
+            this.getGPA();
         }
     }
 </script>

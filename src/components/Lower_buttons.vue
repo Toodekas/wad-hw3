@@ -1,13 +1,13 @@
 <template>
     <div class="controls">
         <div v-if="open">
-            <Courses_view/>
+            <Courses_view ref="coursesView"/>
             <button id="profile-button" class="pill " @click="open = false">Profile</button>
             <button id="courses-button" class="pill active" @click="open = true">Courses</button>
         </div>
         <div v-else>
             <div id="content">
-                <Profile_view/>
+                <Profile_view ref="profileView"/>
             </div>
             <button id="profile-button" class="pill active" @click="open = false">Profile</button>
             <button id="courses-button" class="pill" @click="open = true">Courses</button>

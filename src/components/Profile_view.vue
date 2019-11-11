@@ -12,7 +12,8 @@
                 </ul>
             </div>
             <div id="gpa">
-                <strong>2.75</strong>
+                <strong>{{gpaVal}}</strong>
+                <button v-on:click="callGPA"></button>
             </div>
             <div class="clear-fix"></div>
         </div>
@@ -21,7 +22,20 @@
 
 <script>
     export default {
-        name: "Profile_view"
+        name: "Profile_view",
+        data: () => {
+            return {
+                gpaVal: localStorage.gpaVal
+            }
+        },
+        methods: {
+            callGPA() {
+                localStorage.gpaVal = 1000;
+            }
+        },
+        mounted() {
+            localStorage.gpaVal = 2.8;
+        }
     }
 </script>
 
