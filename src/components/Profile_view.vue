@@ -13,7 +13,6 @@
             </div>
             <div id="gpa">
                 <strong>{{gpaVal}}</strong>
-                <button v-on:click="callGPA"></button>
             </div>
             <div class="clear-fix"></div>
         </div>
@@ -26,11 +25,6 @@
         data: () => {
             return {
                 gpaVal: localStorage.gpaVal
-            }
-        },
-        methods: {
-            callGPA() {
-                localStorage.gpaVal = 1000;
             }
         },
         mounted() {

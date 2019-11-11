@@ -61,13 +61,6 @@
 
 
 
-        <div id="deleteme">
-            <button v-on:click="addNewRow"></button>
-            <h1 id="test1"></h1>
-        </div>
-
-
-
 
         <br>
         <br>
